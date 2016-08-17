@@ -11,7 +11,23 @@
 
     <modules>
         <module>001.SecKill</module>
+        <module>002.MybatisTrain</module>
     </modules>
+
+    <properties>
+        <mybatis.version>3.4.1</mybatis.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>
