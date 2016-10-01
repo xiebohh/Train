@@ -22,7 +22,7 @@ public class JdbcRealm {
         // 得到当前执行的用户
         Subject currentUser = SecurityUtils.getSubject();
         // 创建token令牌，用户名/密码
-        UsernamePasswordToken token = new UsernamePasswordToken("java1234", "12345");
+        UsernamePasswordToken token = new UsernamePasswordToken("java1234", "123456");
 
         try {
             // 身份认证
