@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hhmedic.xiebo.repository.UserMapper">
+
+    <resultMap id="UserBasicResultMapper" type="com.hhmedic.xiebo.entity.User">
+        <id column="u_id" property="id" jdbcType="INTEGER" />
+        <result column="u_userName" property="userName" jdbcType="VARCHAR" />
+        <result column="u_password" property="password" jdbcType="VARCHAR" />
+        <result column="u_roleId" property="roleId" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        u.id AS u_id, u.userName AS u_userName, u.password AS u_password, u.roleId AS u_roleid
+    </sql>
+
+    <select id="selectByUserName" resultMap="UserBasicResultMapper">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_user AS u
+        WHERE u.userName = #{userName, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectRolesByUserName" resultType="String">
+        SELECT
+        r.roleName
+        FROM t_user AS u
+        LEFT JOIN t_role AS r ON r.id = u.roleId
+        WHERE u.userName = #{userName, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectPermissionsByUserName" resultType="String">
+        SELECT
+        p.permissionName
+        FROM t_user AS u
+        LEFT JOIN t_role AS r ON r.id = u.roleId
+        LEFT JOIN t_permission AS p ON p.roleId = u.roleId
+        WHERE u.userName = #{userName, jdbcType=VARCHAR}
+    </select>
+
+</mapper>

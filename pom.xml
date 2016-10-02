@@ -13,7 +13,14 @@
         <module>001.SecKill</module>
         <module>002.MybatisTrain</module>
         <module>shiro</module>
+        <module>shiroWeb</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
+    </dependencies>
 
     <properties>
         <mybatis.version>3.4.1</mybatis.version>
@@ -22,6 +29,17 @@
         <druid.version>1.0.26</druid.version>
         <mysql.version>6.0.4</mysql.version>
         <commons-logging.version>1.2</commons-logging.version>
+        <junit.version>4.12</junit.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <jsp-api.version>2.3.1</jsp-api.version>
+        <jstl.version>1.2</jstl.version>
+        <log4j.version>1.2.17</log4j.version>
+        <shiro-web.version>1.3.2</shiro-web.version>
+        <slf4j-api.version>1.7.21</slf4j-api.version>
+        <java.version>1.8</java.version>
+        <lombok.version>1.16.10</lombok.version>
+        <org.apache.maven.plugins.version>3.2</org.apache.maven.plugins.version>
+        <mybatis.version>3.4.1</mybatis.version>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +86,83 @@
                 <artifactId>commons-logging</artifactId>
                 <version>${commons-logging.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/junit/junit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <!-- 必加，在工程编译、测试的时候可以引用jsp-api.jar，但发布的时候工程不要包含此包，因为Tomcat已包含，否则会出现冲突，这里说明servlet-api.jar文件将由应用服务器提供，打包时不需要包含-->
+                <scope>provided</scope>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <!-- 必加，在工程编译、测试的时候可以引用jsp-api.jar，但发布的时候工程不要包含此包，因为Tomcat已包含，否则会出现冲突，这里说明jsp-api.jar文件将由应用服务器提供，打包时不需要包含-->
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-web -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro-web.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.ibatis/ibatis-core -->
+            <dependency>
+                <groupId>org.apache.ibatis</groupId>
+                <artifactId>ibatis-core</artifactId>
+                <version>3.0</version>
+            </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>
