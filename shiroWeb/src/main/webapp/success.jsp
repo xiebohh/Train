@@ -20,7 +20,7 @@
     欢迎有user:select的用户
 </shiro:hasPermission>
 <shiro:hasPermission name="student:select" >
-    欢迎有user:select的用户
+    欢迎有student:select的用户
 </shiro:hasPermission>
 <shiro:hasPermission name="test" >
     不应该显示
