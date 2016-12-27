@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Train</artifactId>
+        <groupId>com.hhmedic.xiebo</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>StormTest</artifactId>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>storm</groupId>
+            <artifactId>storm</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>shiroWeb</finalName>
+
+        <resources>
+            <!-- 将所有src/main.java目录下的所有xml文件放到classpath目录下/-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <!-- 将src/main/resources目录下的所有文件放到classpath目录下/-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 不写includes默认就是全部文件/-->
+            </resource>
+        </resources>
+
+        <plugins>
+
+            <!-- compiler插件, 设定JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

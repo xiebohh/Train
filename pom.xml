@@ -14,6 +14,7 @@
         <module>002.MybatisTrain</module>
         <module>shiro</module>
         <module>shiroWeb</module>
+        <module>StormTest</module>
     </modules>
     <dependencies>
         <dependency>
@@ -39,7 +40,7 @@
         <java.version>1.8</java.version>
         <lombok.version>1.16.10</lombok.version>
         <org.apache.maven.plugins.version>3.2</org.apache.maven.plugins.version>
-        <mybatis.version>3.4.1</mybatis.version>
+        <storm.version>0.9.0.1</storm.version>
     </properties>
 
     <dependencyManagement>
@@ -148,13 +149,6 @@
                 <version>${lombok.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/org.apache.ibatis/ibatis-core -->
             <dependency>
                 <groupId>org.apache.ibatis</groupId>
@@ -162,9 +156,24 @@
                 <version>3.0</version>
             </dependency>
 
+            <!--https://mvnrepository.com/artifact/storm/storm-->
+            <dependency>
+                <groupId>storm</groupId>
+                <artifactId>storm</artifactId>
+                <version>${storm.version}</version>
+            </dependency>
 
 
         </dependencies>
     </dependencyManagement>
+
+    <!--Maven支持为同一个工程指定多个仓库）。clojars是存放Storm依赖的仓库。Maven会为运行本地模式自动下载必要的所有子包依赖。-->
+    <repositories>
+        <repository>
+            <id>clojars.org</id>
+            <url>http://clojars.org/repo</url>
+        </repository>
+    </repositories>
+
 
 </project>
