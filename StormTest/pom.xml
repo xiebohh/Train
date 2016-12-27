@@ -21,7 +21,7 @@
     </dependencies>
 
     <build>
-        <finalName>shiroWeb</finalName>
+        <finalName>StormTest</finalName>
 
         <resources>
             <!-- 将所有src/main.java目录下的所有xml文件放到classpath目录下/-->
