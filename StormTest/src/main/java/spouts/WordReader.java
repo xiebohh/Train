@@ -4,9 +4,7 @@ package spouts;
  * Created by Administrator on 2016/12/27.
  */
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Map;
 
 import backtype.storm.spout.SpoutOutputCollector;
@@ -18,7 +16,7 @@ import backtype.storm.tuple.Values;
 
 public class WordReader implements IRichSpout {
     private SpoutOutputCollector collector;
-    private FileReader fileReader;
+    private BufferedReader bufferedReader;
     private boolean completed = false;
     private TopologyContext context;
 
@@ -33,13 +31,9 @@ public class WordReader implements IRichSpout {
     @Override
     public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
         System.out.println("WordReader open");
-        try {
-            this.context = context;
-            System.out.println(conf.get("wordsFile"));
-            this.fileReader = new FileReader(conf.get("wordsFile").toString());
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("Error reading file [" + conf.get("wordsFile") + "]");
-        }
+        this.context = context;
+        InputStream is = WordReader.class.getResourceAsStream(conf.get("wordsFile").toString());
+        this.bufferedReader = new BufferedReader(new InputStreamReader(is));
         this.collector = collector;
     }
 
@@ -62,13 +56,14 @@ public class WordReader implements IRichSpout {
         }
         String str;
         //创建reader
-        BufferedReader reader = new BufferedReader(fileReader);
+//        BufferedReader reader = new BufferedReader(fileReader);
         try {
             //读所有文本行
-            while ((str = reader.readLine()) != null) {
+            while ((str = bufferedReader.readLine()) != null) {
                 /**
                  * 按行发布一个新值
                  */
+                System.out.println(str);
                 collector.emit(new Values(str), str);
             }
         } catch (Exception e) {

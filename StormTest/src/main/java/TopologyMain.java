@@ -20,7 +20,7 @@ public class TopologyMain {
 
         //配置
         Config conf = new Config();
-        conf.put("wordsFile", "words.txt");
+        conf.put("wordsFile", "/words.txt");
         conf.setDebug(true);
 
         //运行拓扑
