@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2016/12/27.
  */
+
 import spouts.WordReader;
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
@@ -15,7 +16,7 @@ public class TopologyMain {
         TopologyBuilder builder = new TopologyBuilder();
         builder.setSpout("word-reader", new WordReader());
         builder.setBolt("word-normalizer", new WordNormalizer()).shuffleGrouping("word-reader");
-        builder.setBolt("word-counter", new WordCounter(),1).fieldsGrouping("word-normalizer", new Fields("word"));
+        builder.setBolt("word-counter", new WordCounter(), 1).fieldsGrouping("word-normalizer", new Fields("word"));
 
         //配置
         Config conf = new Config();
