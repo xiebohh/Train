@@ -13,9 +13,10 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-core -->
         <dependency>
-            <groupId>storm</groupId>
-            <artifactId>storm</artifactId>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-core</artifactId>
         </dependency>
 
     </dependencies>
