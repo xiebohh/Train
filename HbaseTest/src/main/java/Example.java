@@ -173,7 +173,7 @@ public class Example {
             put3.addColumn(Bytes.toBytes("day"), Bytes.toBytes(key.toString()), Bytes.toBytes(String.valueOf(set.size())));
             /**
              * KEYOUT：表示整个文件中的不同单词 Text | 主键rowKey ImmutableBytesWritable
-             * VALUEOUT：表示整个文件中的不同单词出现的总次数 IntWritable | Hbase操作 Mutation（Put等操作的弗雷）
+             * VALUEOUT：表示整个文件中的不同单词出现的总次数 IntWritable | Hbase操作 Mutation（Put等操作的父类）
              */
             context.write(null, put3);
 

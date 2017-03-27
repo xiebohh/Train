@@ -17,6 +17,7 @@ public class People {
 
     }
     public static void main(String[] args) throws Exception {
+        System.out.println(((Integer) 1).toString());
         System.out.println(Inner.CLASS_NAME);
         System.out.println(Inner.class.getSimpleName());
     }
