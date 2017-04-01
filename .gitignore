@@ -1,15 +1,19 @@
 # maven ignore
 target/
-*.jar
+out/
+build/
+bin/
 *.war
 *.zip
 *.tar
-*.tar.gz
+*.ear
 
 # eclipse ignore
 .settings/
 .project
 .classpath
+.mymetadata
+.metadata
 
 # idea ignore
 .idea/
@@ -24,14 +28,14 @@ target/
 *.patch
 *.tmp
 *.swp
+*.bak
+~*
 
 # system ignore
 .DS_Store
 Thumbs.db
 
-
-
-#findreport
+# findreport
 db.backup
 db.data
 db.lck
@@ -39,3 +43,11 @@ db.log
 db.properties
 db.script
 performanceAnalyze.db
+
+# angular
+node_modules/
+
+# big data fold
+**/bigdata/
+
+!.gitignore
