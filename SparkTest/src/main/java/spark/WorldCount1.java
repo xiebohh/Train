@@ -7,7 +7,6 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.util.LongAccumulator;
 import scala.Tuple2;
 
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 
@@ -18,7 +17,7 @@ public class WorldCount1 {
     private static final Pattern SPACE = Pattern.compile("\\|");
 
     public static void main(String[] args) throws InterruptedException {
-
+//        BasicConfigurator.configure();
         String appName = "My First Python Spark";
         String master = "local";
         SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
